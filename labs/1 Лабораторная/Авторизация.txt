@@ -1,0 +1,25 @@
+//присутствует валидация данных
+
+@model CrossDoubleN.ViewModels.LoginModel
+@{
+    ViewBag.Title = "Login";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div>
+        @Html.ValidationSummary()
+        <input type="hidden" name="returnUrl" value="@ViewBag.returnUrl" />
+        <p>
+            <label>Имя</label><br />
+            @Html.EditorFor(x => x.Name)
+        </p>
+        <p>
+            <label>Пароль</label><br />
+            @Html.EditorFor(x => x.Password)
+        </p>
+        <p><button type="submit">Войти</button></p>
+    </div>
+}
